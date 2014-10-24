@@ -400,7 +400,7 @@ class ELBConnection(AWSQueryConnection):
         :param attribute: The attribute you wish to change.
 
         * crossZoneLoadBalancing - Boolean (true)
-        * connectionSettings - :py:class:`ConnectionSettingAttribute` instance
+        * connectingSettings - :py:class:`ConnectionSettingAttribute` instance
         * accessLog - :py:class:`AccessLogAttribute` instance
         * connectionDraining - :py:class:`ConnectionDrainingAttribute` instance
 
@@ -437,7 +437,7 @@ class ELBConnection(AWSQueryConnection):
                 value.enabled and 'true' or 'false'
             params['LoadBalancerAttributes.ConnectionDraining.Timeout'] = \
                 value.timeout
-        elif attribute.lower == 'connectingsettings':
+        elif attribute.lower() == 'connectingsettings':
             params['LoadBalancerAttributes.ConnectionSettings.IdleTimeout'] = \
                 value.idle_timeout
         else:
@@ -472,7 +472,7 @@ class ELBConnection(AWSQueryConnection):
 
           * accessLog - :py:class:`AccessLogAttribute` instance
           * crossZoneLoadBalancing - Boolean
-          * connectionSettings - :py:class:`ConnectionSettingAttribute` instance
+          * connectingSettings - :py:class:`ConnectionSettingAttribute` instance
           * connectionDraining - :py:class:`ConnectionDrainingAttribute`
             instance
 
